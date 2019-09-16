@@ -50,10 +50,12 @@ export class AddPage implements OnInit {
       this.project.endDate = null;
       this.project.done=false;
     }
-    this.taskService.SaveStorage() ;
+    this.taskService.SaveStorage();    
+  }
 
-    console.log(this.taskService.projectList);
-
+  Remove(i:number){
+        this.project.items.splice(i,1);
+        this.taskService.SaveStorage();
   }
 
 }
