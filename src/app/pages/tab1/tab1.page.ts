@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { TasksService } from '../../services/tasks.service';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { Project } from '../../models/project.model';
 
 
 @Component({
@@ -47,8 +48,13 @@ export class Tab1Page {
       }
     ]
   });
-
     alert.present();
   }
+
+  SelectProject(project:Project){
+    this.router.navigateByUrl(`/tabs/tab1/add/${project.id}`);
+     console.log(project);  
+  }
+
 
 }
