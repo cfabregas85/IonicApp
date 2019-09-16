@@ -19,6 +19,19 @@ export class TasksService {
       return project.id;
    }
 
+   EditProject( title: string){
+       console.log(title);
+   }
+
+   RemoveProject( id:number){     
+    if (id == null) {
+      return;
+    }else{
+    this.projectList = this.projectList.filter( list=>list.id !== id);    
+    this.SaveStorage();
+  }
+ }
+
    GetProject( projectId:string | number){
       projectId = Number(projectId);
      return this.projectList.find( list=> list.id === projectId);     
@@ -35,5 +48,5 @@ export class TasksService {
       {
         this.projectList=[];
       }     
-   }
+   } 
 }
